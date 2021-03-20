@@ -2,25 +2,38 @@
   "name": "swagger-ui-themes",
   "description": "A collection of CSS themes for Swagger UI",
   "version": "3.0.0",
-  "keywords": ["theme",  "swagger",  "swagger UI",  "ui",  "flat"],
-  "homepage": "http://meostrander.com/swagger-ui-themes",
+  "keywords": [
+    "theme",
+    "swagger",
+    "swagger UI",
+    "ui",
+    "flat"
+  ],
+  "homepage": "https://github.com/wojtek555/swagger-ui-themes",
   "bugs": {
-    "url" : "http://github.com/ostranme/swagger-ui-themes/issues"
+    "url": "https://github.com/wojtek555/swagger-ui-themes/issues"
   },
   "author": {
-    "name": "Mark Ostrander",
-    "web": "http://twitter.com/mark_ostrander"
+    "name": "Wojciech Barcik",
+    "web": "https://github.com/wojtek555"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ostranme/swagger-ui-themes.git"
+    "url": "https://github.com/wojtek555/swagger-ui-themes"
   },
-  "contributors": [
-  ],
+  "contributors": [],
   "license": "(MIT)",
-  "dependencies": {
+  "bin": {
+    "cleancss": "./node_modules/.bin/cleancss"
   },
-  "engines" : {
-    "node" : ">=0.10.3"
+  "scripts": {
+    "build": "mkdir -p dist && rm -rf dist/* && cp -r themes/ dist/ && npx cleancss --batch --batch-suffix '.min' dist/themes/**/*.css && ./scripts/compress.sh themes"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "clean-css-cli": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=0.10.3"
   }
 }
